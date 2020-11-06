@@ -166,6 +166,7 @@ async function register (server, options) {
           // has the effect of setting it or "leaving it as it was" if it was already added via child bindings
           req: shouldLogRequestStart(request) ? undefined : request,
           res: request.raw.res,
+          authId: request.auth && request.auth.credentials ? request.auth.credentials.id : undefined,
           responseTime: (info.completed !== undefined ? info.completed : info.responded) - info.received
         },
         'request completed'
